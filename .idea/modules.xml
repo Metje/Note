@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Architecture Example.iml" filepath="$PROJECT_DIR$/Architecture Example.iml" group="Architecture Example" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Architecture Example/app" />
+    </modules>
+  </component>
+</project>

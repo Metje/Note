@@ -9,7 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Note.class, Category.class}, version = 2, exportSchema = false)
+@Database(entities = {Note.class, Category.class}, version = 5, exportSchema = false)
 public abstract class MainDatabase extends RoomDatabase {
     private static MainDatabase instance;
 
@@ -47,13 +47,15 @@ public abstract class MainDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            noteDao.insert(new Note("Milch","Die gute von Tuffi",2));
-            noteDao.insert(new Note("Müsli","Honey Bees",5));
-            noteDao.insert(new Note("Patties","Von der Fleischtheke",1));
-
             categoryDao.insert(new Category("Obst"));
             categoryDao.insert(new Category("Fleisch"));
             categoryDao.insert(new Category("Sonstiges"));
+
+            noteDao.insert(new Note("Milch","Die gute von Tuffi",2, 3));
+            noteDao.insert(new Note("Müsli","Honey Bees",5,3));
+            noteDao.insert(new Note("Patties","Von der Fleischtheke",1,2));
+
+
             return null;
         }
     }

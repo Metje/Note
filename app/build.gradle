@@ -43,4 +43,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+
+    //Debugging Database
+    debugImplementation 'com.amitshekhar.android:debug-db-encrypt:1.0.6'
 }

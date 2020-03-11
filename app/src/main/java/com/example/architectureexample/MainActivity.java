@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -80,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(AddEditNoteActivity.EXTRA_TITLE, note.getTitle());
                 intent.putExtra(AddEditNoteActivity.EXTRA_DESCRIPTION, note.getDescription());
                 intent.putExtra(AddEditNoteActivity.EXTRA_PRIORITY, note.getPriority());
+                intent.putExtra(AddEditNoteActivity.EXTRA_CAT_ID, note.getCategoryId());
+                Log.i("TEST_CAT_ID","Categorie in Click: "+ intent.getStringExtra(AddEditNoteActivity.EXTRA_CAT_ID)+"/"+note.getCategoryId());
+                Log.i("TEST_CAT_ID","Priority in Click: "+ intent.getStringExtra(AddEditNoteActivity.EXTRA_PRIORITY)+"/"+note.getPriority());
+
 
                 startActivityForResult(intent, EDIT_NOTE_REQUEST);
             }
@@ -93,8 +98,9 @@ public class MainActivity extends AppCompatActivity {
             String title = data.getStringExtra(AddEditNoteActivity.EXTRA_TITLE);
             String description = data.getStringExtra(AddEditNoteActivity.EXTRA_DESCRIPTION);
             int priority = data.getIntExtra(AddEditNoteActivity.EXTRA_PRIORITY, 1);
+            String cat_id = data.getStringExtra(AddEditNoteActivity.EXTRA_CAT_ID);
 
-            Note note = new Note(title, description, priority);
+            Note note = new Note(title, description, priority, Integer.valueOf(cat_id));
             noteViewModel.insert(note);
             Toast.makeText(this, "Notiz gespeichert", Toast.LENGTH_SHORT).show();
         } else if (requestCode == EDIT_NOTE_REQUEST && resultCode == RESULT_OK) {
@@ -107,8 +113,9 @@ public class MainActivity extends AppCompatActivity {
             String title = data.getStringExtra(AddEditNoteActivity.EXTRA_TITLE);
             String description = data.getStringExtra(AddEditNoteActivity.EXTRA_DESCRIPTION);
             int priority = data.getIntExtra(AddEditNoteActivity.EXTRA_PRIORITY, 1);
+            String cat_id = data.getStringExtra(AddEditNoteActivity.EXTRA_CAT_ID);
 
-            Note note = new Note(title, description, priority);
+            Note note = new Note(title, description, priority,Integer.valueOf(cat_id));
             note.setId(id);
             noteViewModel.update(note);
             Toast.makeText(this, "Notiz gespeichert", Toast.LENGTH_SHORT).show();

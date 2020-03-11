@@ -22,6 +22,15 @@
         android:hint="Bitte gib eine Beschreibung ein!"
         android:inputType="textMultiLine"/>
 
+
+
+    <EditText
+        android:id="@+id/spinner_cat_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Bitte gib eine Kategorie ein!"
+        android:inputType="text"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
